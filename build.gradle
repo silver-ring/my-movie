@@ -1,0 +1,41 @@
+plugins {
+    id 'org.springframework.boot' version '1.5.3.RELEASE'
+}
+
+apply plugin: 'java'
+apply plugin: 'scala'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'application'
+
+ext {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
+jar {
+    baseName = 'MyMovie'
+    version =  '1.0'
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+run {
+    mainClassName = "com.crossover.mymovie.Application"
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("org.springframework.boot:spring-boot-starter-security")
+    compile("org.hibernate:hibernate-validator")
+    compile("io.jsonwebtoken:jjwt:0.7.0")
+    compile("org.scala-lang:scala-library:2.12.2")
+    compile("mysql:mysql-connector-java")
+    testCompile("com.h2database:h2")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("org.springframework.security:spring-security-test")
+}
